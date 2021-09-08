@@ -11,7 +11,7 @@ var formSubmitHandler = function(event) {
   var moviename = movieInputEl.value.trim();
 
   if (moviename) {
-    getUserRepos(moviename);
+    getMovie(moviename);
 
     // clear old content
     repoContainerEl.textContent = "";
@@ -21,9 +21,9 @@ var formSubmitHandler = function(event) {
   }
 };
 
-var getMovie = function(user) {
+var getMovie = function(movie) {
   // format the github api url
-  var apiUrl = "http://www.omdbapi.com/?apikey=3870df72&" + user;
+  var apiUrl = "http://www.omdbapi.com/?t="+movie+"&apikey=bb0900b7";
 
 
   //running api response to url
@@ -33,7 +33,6 @@ var getMovie = function(user) {
         console.log(response);
         response.json().then(function(data) {
           console.log(data);
-          displayRepos(data, user);
         });
       } else {
         alert("Error: " + response.statusText);
@@ -44,15 +43,5 @@ var getMovie = function(user) {
     });
 };
 
-var displayRepos = function(repos, searchTerm) {
-  // check if api returned any repos
-  if (repos.length === 0) {
-    repoContainerEl.textContent = "No repositories found.";
-    return;
-  }
-
-  repoSearchTerm.textContent = searchTerm;
-
- 
 // add event listeners to forms
-userFormEl.addEventListener("submit", formSubmitHandler);
+titleFormEl.addEventListener("submit", formSubmitHandler);
