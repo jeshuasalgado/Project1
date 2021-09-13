@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="http://www.omdbapi.com/?apikey=3870df72&" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="./style/style.css" />
+  <title>Movies</title>
+</head>
+
+<body class="flex-column min-100-vh">
+  <header class="hero">
+    <h1 class="app-title"><i class="fab fa-movie"></i> Movie Title</h1>
+    <p>Search for a movie! With a gif! look up search title or name of movie.
+    </p>
+  </header>
+
+
+  <main class="flex-row justify-space-between">
+    <div class="col-12 col-md-4">
+
+      <div class="card">
+        <h3 class="card-header text-uppercase">Search By Movie</h3>
+        <form id="title-form" class="card-body">
+          <label class="form-label" for="moviename">Movie Title</label>
+          <input name="moviename" id="moviename" type="text" autofocus="true" class="form-input" />
+          <button type="submit" class="btn">Get Movie</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-8">
+      <h2 class="subtitle">Showing Movies for: <span id="movie-search-term"></span></h2>
+      <div id="title-container" class="list-group">
+
+      </div>
+    </div>
+  </main>
+
+  <script src="homepage.js"></script>
+</body>
+
+</html>
