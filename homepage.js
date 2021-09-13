@@ -1,7 +1,7 @@
 var titleFormEl = document.querySelector("#title-form");
 var movieInputEl = document.querySelector("#moviename");
 var repoContainerEl = document.querySelector("#title-container");
-var repoSearchTerm = document.querySelector("#movie-search-term");
+var movieSearchTerm = document.querySelector("#movie-search-term");
 
 //refresh stoppage
 var formSubmitHandler = function(event) {
@@ -41,7 +41,28 @@ var getMovie = function(movie) {
     .catch(function(error) {
       alert("connecting omdb");
     });
+    
+    var displayMovies = function(movieSearchTerm) {
+      // check if api returned any repos
+      if (repos.length === 0) {
+        repoContainerEl.textContent = "";
+        return;
+      }
+    
+      movieSearchTerm.textContent = movieSearchTerm;
+    
+      // loop over repos
+      for (var i = 0; i < repos.length; i++) {
+        // format repo name
+        var movieInputEl = repoSearchTerm[i]
+        // create a link for each repo
+        var repoEl = document.createElement("a");
+        repoEl.classList = "list-item flex-row justify-space-between align-center";
+        repoEl.setAttribute("href", moviename);
+
+        var titleForumEl = document.createElement("span");
+        titleEl.textContent = moviename;
 };
 
 // add event listeners to forms
-titleFormEl.addEventListener("submit", formSubmitHandler);
+titleFormEl.addEventListener("submit", formSubmitHandler
